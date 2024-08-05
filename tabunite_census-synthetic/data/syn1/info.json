@@ -1,0 +1,808 @@
+{
+    "name": "syn1",
+    "task_type": "regression",
+    "header": "infer",
+    "column_names": [
+        "syn1_0",
+        "syn1_1",
+        "syn1_2",
+        "syn1_3",
+        "syn1_4",
+        "syn1_5",
+        "syn1_6",
+        "syn1_7",
+        "syn1_8",
+        "syn1_9",
+        "syn2_0",
+        "syn2_1",
+        "syn2_2",
+        "syn2_3",
+        "syn2_4",
+        "syn2_5",
+        "syn2_6",
+        "syn2_7",
+        "syn2_8",
+        "syn2_9",
+        "dIncome1_cont",
+        "dRearning_cont",
+        "dAge_cont",
+        "iEnglish_cont",
+        "dHours_cont",
+        "dHour89_cont",
+        "dTravtime_cont",
+        "iYearwrk_cont",
+        "iYearsch_cont",
+        "iSex_cont",
+        "iRelat1_cont",
+        "iMobility_cont",
+        "dIndustry_cont",
+        "dOccup_cont",
+        "dPOB_cont",
+        "iClass_cont",
+        "dHispanic_cont",
+        "iMarital_cont",
+        "iCitizen_cont",
+        "dAncstry2_cont",
+        "dAncstry1_cont",
+        "iAvail",
+        "dDepart",
+        "iDisabl1",
+        "iDisabl2",
+        "iFeb55",
+        "iFertil",
+        "iImmigr",
+        "iKorean",
+        "iLang1",
+        "iLooking",
+        "iMay75880",
+        "iMeans",
+        "iMilitary",
+        "iMobillim",
+        "iOthrserv",
+        "iPerscare",
+        "dPoverty",
+        "dPwgt1",
+        "iRagechld",
+        "iRelat2",
+        "iRemplpar",
+        "iRiders",
+        "iRlabor",
+        "iRownchld",
+        "dRpincome",
+        "iRPOB",
+        "iRrelchld",
+        "iRspouse",
+        "iRvetserv",
+        "iSchool",
+        "iSept80",
+        "iSubfam1",
+        "iSubfam2",
+        "iTmpabsnt",
+        "iVietnam",
+        "dWeek89",
+        "iWork89",
+        "iWorklwk",
+        "iWWII",
+        "dYrsserv"
+    ],
+    "num_col_idx": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40
+    ],
+    "cat_col_idx": [
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70,
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80
+    ],
+    "target_col_idx": [
+        20
+    ],
+    "file_type": "csv",
+    "data_path": "data/syn1/syn1.csv",
+    "test_path": null,
+    "column_info": {
+        "0": {},
+        "type": "numerical",
+        "max": 5.19933758270342,
+        "min": -5.199337582605575,
+        "1": {},
+        "2": {},
+        "3": {},
+        "4": {},
+        "5": {},
+        "6": {},
+        "7": {},
+        "8": {},
+        "9": {},
+        "10": {},
+        "11": {},
+        "12": {},
+        "13": {},
+        "14": {},
+        "15": {},
+        "16": {},
+        "17": {},
+        "18": {},
+        "19": {},
+        "21": {},
+        "22": {},
+        "23": {},
+        "24": {},
+        "25": {},
+        "26": {},
+        "27": {},
+        "28": {},
+        "29": {},
+        "30": {},
+        "31": {},
+        "32": {},
+        "33": {},
+        "34": {},
+        "35": {},
+        "36": {},
+        "37": {},
+        "38": {},
+        "39": {},
+        "40": {},
+        "41": {},
+        "categorizes": [
+            0.0,
+            1.0,
+            2.0
+        ],
+        "42": {},
+        "43": {},
+        "44": {},
+        "45": {},
+        "46": {},
+        "47": {},
+        "48": {},
+        "49": {},
+        "50": {},
+        "51": {},
+        "52": {},
+        "53": {},
+        "54": {},
+        "55": {},
+        "56": {},
+        "57": {},
+        "58": {},
+        "59": {},
+        "60": {},
+        "61": {},
+        "62": {},
+        "63": {},
+        "64": {},
+        "65": {},
+        "66": {},
+        "67": {},
+        "68": {},
+        "69": {},
+        "70": {},
+        "71": {},
+        "72": {},
+        "73": {},
+        "74": {},
+        "75": {},
+        "76": {},
+        "77": {},
+        "78": {},
+        "79": {},
+        "80": {},
+        "20": {}
+    },
+    "train_num": 1991210,
+    "test_num": 221246,
+    "idx_mapping": {
+        "0": 0,
+        "1": 1,
+        "2": 2,
+        "3": 3,
+        "4": 4,
+        "5": 5,
+        "6": 6,
+        "7": 7,
+        "8": 8,
+        "9": 9,
+        "10": 10,
+        "11": 11,
+        "12": 12,
+        "13": 13,
+        "14": 14,
+        "15": 15,
+        "16": 16,
+        "17": 17,
+        "18": 18,
+        "19": 19,
+        "20": 80,
+        "21": 20,
+        "22": 21,
+        "23": 22,
+        "24": 23,
+        "25": 24,
+        "26": 25,
+        "27": 26,
+        "28": 27,
+        "29": 28,
+        "30": 29,
+        "31": 30,
+        "32": 31,
+        "33": 32,
+        "34": 33,
+        "35": 34,
+        "36": 35,
+        "37": 36,
+        "38": 37,
+        "39": 38,
+        "40": 39,
+        "41": 40,
+        "42": 41,
+        "43": 42,
+        "44": 43,
+        "45": 44,
+        "46": 45,
+        "47": 46,
+        "48": 47,
+        "49": 48,
+        "50": 49,
+        "51": 50,
+        "52": 51,
+        "53": 52,
+        "54": 53,
+        "55": 54,
+        "56": 55,
+        "57": 56,
+        "58": 57,
+        "59": 58,
+        "60": 59,
+        "61": 60,
+        "62": 61,
+        "63": 62,
+        "64": 63,
+        "65": 64,
+        "66": 65,
+        "67": 66,
+        "68": 67,
+        "69": 68,
+        "70": 69,
+        "71": 70,
+        "72": 71,
+        "73": 72,
+        "74": 73,
+        "75": 74,
+        "76": 75,
+        "77": 76,
+        "78": 77,
+        "79": 78,
+        "80": 79
+    },
+    "inverse_idx_mapping": {
+        "0": 0,
+        "1": 1,
+        "2": 2,
+        "3": 3,
+        "4": 4,
+        "5": 5,
+        "6": 6,
+        "7": 7,
+        "8": 8,
+        "9": 9,
+        "10": 10,
+        "11": 11,
+        "12": 12,
+        "13": 13,
+        "14": 14,
+        "15": 15,
+        "16": 16,
+        "17": 17,
+        "18": 18,
+        "19": 19,
+        "80": 20,
+        "20": 21,
+        "21": 22,
+        "22": 23,
+        "23": 24,
+        "24": 25,
+        "25": 26,
+        "26": 27,
+        "27": 28,
+        "28": 29,
+        "29": 30,
+        "30": 31,
+        "31": 32,
+        "32": 33,
+        "33": 34,
+        "34": 35,
+        "35": 36,
+        "36": 37,
+        "37": 38,
+        "38": 39,
+        "39": 40,
+        "40": 41,
+        "41": 42,
+        "42": 43,
+        "43": 44,
+        "44": 45,
+        "45": 46,
+        "46": 47,
+        "47": 48,
+        "48": 49,
+        "49": 50,
+        "50": 51,
+        "51": 52,
+        "52": 53,
+        "53": 54,
+        "54": 55,
+        "55": 56,
+        "56": 57,
+        "57": 58,
+        "58": 59,
+        "59": 60,
+        "60": 61,
+        "61": 62,
+        "62": 63,
+        "63": 64,
+        "64": 65,
+        "65": 66,
+        "66": 67,
+        "67": 68,
+        "68": 69,
+        "69": 70,
+        "70": 71,
+        "71": 72,
+        "72": 73,
+        "73": 74,
+        "74": 75,
+        "75": 76,
+        "76": 77,
+        "77": 78,
+        "78": 79,
+        "79": 80
+    },
+    "idx_name_mapping": {
+        "0": "syn1_0",
+        "1": "syn1_1",
+        "2": "syn1_2",
+        "3": "syn1_3",
+        "4": "syn1_4",
+        "5": "syn1_5",
+        "6": "syn1_6",
+        "7": "syn1_7",
+        "8": "syn1_8",
+        "9": "syn1_9",
+        "10": "syn2_0",
+        "11": "syn2_1",
+        "12": "syn2_2",
+        "13": "syn2_3",
+        "14": "syn2_4",
+        "15": "syn2_5",
+        "16": "syn2_6",
+        "17": "syn2_7",
+        "18": "syn2_8",
+        "19": "syn2_9",
+        "20": "dIncome1_cont",
+        "21": "dRearning_cont",
+        "22": "dAge_cont",
+        "23": "iEnglish_cont",
+        "24": "dHours_cont",
+        "25": "dHour89_cont",
+        "26": "dTravtime_cont",
+        "27": "iYearwrk_cont",
+        "28": "iYearsch_cont",
+        "29": "iSex_cont",
+        "30": "iRelat1_cont",
+        "31": "iMobility_cont",
+        "32": "dIndustry_cont",
+        "33": "dOccup_cont",
+        "34": "dPOB_cont",
+        "35": "iClass_cont",
+        "36": "dHispanic_cont",
+        "37": "iMarital_cont",
+        "38": "iCitizen_cont",
+        "39": "dAncstry2_cont",
+        "40": "dAncstry1_cont",
+        "41": "iAvail",
+        "42": "dDepart",
+        "43": "iDisabl1",
+        "44": "iDisabl2",
+        "45": "iFeb55",
+        "46": "iFertil",
+        "47": "iImmigr",
+        "48": "iKorean",
+        "49": "iLang1",
+        "50": "iLooking",
+        "51": "iMay75880",
+        "52": "iMeans",
+        "53": "iMilitary",
+        "54": "iMobillim",
+        "55": "iOthrserv",
+        "56": "iPerscare",
+        "57": "dPoverty",
+        "58": "dPwgt1",
+        "59": "iRagechld",
+        "60": "iRelat2",
+        "61": "iRemplpar",
+        "62": "iRiders",
+        "63": "iRlabor",
+        "64": "iRownchld",
+        "65": "dRpincome",
+        "66": "iRPOB",
+        "67": "iRrelchld",
+        "68": "iRspouse",
+        "69": "iRvetserv",
+        "70": "iSchool",
+        "71": "iSept80",
+        "72": "iSubfam1",
+        "73": "iSubfam2",
+        "74": "iTmpabsnt",
+        "75": "iVietnam",
+        "76": "dWeek89",
+        "77": "iWork89",
+        "78": "iWorklwk",
+        "79": "iWWII",
+        "80": "dYrsserv"
+    },
+    "metadata": {
+        "columns": {
+            "0": {
+                "sdtype": "numerical",
+                "computer_representation": "Float"
+            },
+            "1": {
+                "sdtype": "numerical",
+                "computer_representation": "Float"
+            },
+            "2": {
+                "sdtype": "numerical",
+                "computer_representation": "Float"
+            },
+            "3": {
+                "sdtype": "numerical",
+                "computer_representation": "Float"
+            },
+            "4": {
+                "sdtype": "numerical",
+                "computer_representation": "Float"
+            },
+            "5": {
+                "sdtype": "numerical",
+                "computer_representation": "Float"
+            },
+            "6": {
+                "sdtype": "numerical",
+                "computer_representation": "Float"
+            },
+            "7": {
+                "sdtype": "numerical",
+                "computer_representation": "Float"
+            },
+            "8": {
+                "sdtype": "numerical",
+                "computer_representation": "Float"
+            },
+            "9": {
+                "sdtype": "numerical",
+                "computer_representation": "Float"
+            },
+            "10": {
+                "sdtype": "numerical",
+                "computer_representation": "Float"
+            },
+            "11": {
+                "sdtype": "numerical",
+                "computer_representation": "Float"
+            },
+            "12": {
+                "sdtype": "numerical",
+                "computer_representation": "Float"
+            },
+            "13": {
+                "sdtype": "numerical",
+                "computer_representation": "Float"
+            },
+            "14": {
+                "sdtype": "numerical",
+                "computer_representation": "Float"
+            },
+            "15": {
+                "sdtype": "numerical",
+                "computer_representation": "Float"
+            },
+            "16": {
+                "sdtype": "numerical",
+                "computer_representation": "Float"
+            },
+            "17": {
+                "sdtype": "numerical",
+                "computer_representation": "Float"
+            },
+            "18": {
+                "sdtype": "numerical",
+                "computer_representation": "Float"
+            },
+            "19": {
+                "sdtype": "numerical",
+                "computer_representation": "Float"
+            },
+            "21": {
+                "sdtype": "numerical",
+                "computer_representation": "Float"
+            },
+            "22": {
+                "sdtype": "numerical",
+                "computer_representation": "Float"
+            },
+            "23": {
+                "sdtype": "numerical",
+                "computer_representation": "Float"
+            },
+            "24": {
+                "sdtype": "numerical",
+                "computer_representation": "Float"
+            },
+            "25": {
+                "sdtype": "numerical",
+                "computer_representation": "Float"
+            },
+            "26": {
+                "sdtype": "numerical",
+                "computer_representation": "Float"
+            },
+            "27": {
+                "sdtype": "numerical",
+                "computer_representation": "Float"
+            },
+            "28": {
+                "sdtype": "numerical",
+                "computer_representation": "Float"
+            },
+            "29": {
+                "sdtype": "numerical",
+                "computer_representation": "Float"
+            },
+            "30": {
+                "sdtype": "numerical",
+                "computer_representation": "Float"
+            },
+            "31": {
+                "sdtype": "numerical",
+                "computer_representation": "Float"
+            },
+            "32": {
+                "sdtype": "numerical",
+                "computer_representation": "Float"
+            },
+            "33": {
+                "sdtype": "numerical",
+                "computer_representation": "Float"
+            },
+            "34": {
+                "sdtype": "numerical",
+                "computer_representation": "Float"
+            },
+            "35": {
+                "sdtype": "numerical",
+                "computer_representation": "Float"
+            },
+            "36": {
+                "sdtype": "numerical",
+                "computer_representation": "Float"
+            },
+            "37": {
+                "sdtype": "numerical",
+                "computer_representation": "Float"
+            },
+            "38": {
+                "sdtype": "numerical",
+                "computer_representation": "Float"
+            },
+            "39": {
+                "sdtype": "numerical",
+                "computer_representation": "Float"
+            },
+            "40": {
+                "sdtype": "numerical",
+                "computer_representation": "Float"
+            },
+            "41": {
+                "sdtype": "categorical"
+            },
+            "42": {
+                "sdtype": "categorical"
+            },
+            "43": {
+                "sdtype": "categorical"
+            },
+            "44": {
+                "sdtype": "categorical"
+            },
+            "45": {
+                "sdtype": "categorical"
+            },
+            "46": {
+                "sdtype": "categorical"
+            },
+            "47": {
+                "sdtype": "categorical"
+            },
+            "48": {
+                "sdtype": "categorical"
+            },
+            "49": {
+                "sdtype": "categorical"
+            },
+            "50": {
+                "sdtype": "categorical"
+            },
+            "51": {
+                "sdtype": "categorical"
+            },
+            "52": {
+                "sdtype": "categorical"
+            },
+            "53": {
+                "sdtype": "categorical"
+            },
+            "54": {
+                "sdtype": "categorical"
+            },
+            "55": {
+                "sdtype": "categorical"
+            },
+            "56": {
+                "sdtype": "categorical"
+            },
+            "57": {
+                "sdtype": "categorical"
+            },
+            "58": {
+                "sdtype": "categorical"
+            },
+            "59": {
+                "sdtype": "categorical"
+            },
+            "60": {
+                "sdtype": "categorical"
+            },
+            "61": {
+                "sdtype": "categorical"
+            },
+            "62": {
+                "sdtype": "categorical"
+            },
+            "63": {
+                "sdtype": "categorical"
+            },
+            "64": {
+                "sdtype": "categorical"
+            },
+            "65": {
+                "sdtype": "categorical"
+            },
+            "66": {
+                "sdtype": "categorical"
+            },
+            "67": {
+                "sdtype": "categorical"
+            },
+            "68": {
+                "sdtype": "categorical"
+            },
+            "69": {
+                "sdtype": "categorical"
+            },
+            "70": {
+                "sdtype": "categorical"
+            },
+            "71": {
+                "sdtype": "categorical"
+            },
+            "72": {
+                "sdtype": "categorical"
+            },
+            "73": {
+                "sdtype": "categorical"
+            },
+            "74": {
+                "sdtype": "categorical"
+            },
+            "75": {
+                "sdtype": "categorical"
+            },
+            "76": {
+                "sdtype": "categorical"
+            },
+            "77": {
+                "sdtype": "categorical"
+            },
+            "78": {
+                "sdtype": "categorical"
+            },
+            "79": {
+                "sdtype": "categorical"
+            },
+            "80": {
+                "sdtype": "categorical"
+            },
+            "20": {
+                "sdtype": "numerical",
+                "computer_representation": "Float"
+            }
+        }
+    }
+}
