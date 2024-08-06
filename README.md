@@ -60,11 +60,33 @@ pip install scipy==1.12.0
 ## Datasets
 
 Baseline datasets can be downloaded within the tabunite_main directory as follows:
-
 ```
 python download_dataset.py
 python process_dataset.py
 ```
+The following datasets are included:
+- **Adult**: https://archive.ics.uci.edu/dataset/2/adult
+- **Beijing** PM2.5: https://archive.ics.uci.edu/dataset/381/beijing+pm2+5+data
+- **Default** of Credit Card Clients: https://archive.ics.uci.edu/dataset/350/default+of+credit+card+clients
+- **MAGIC** Gamma Telescope: https://archive.ics.uci.edu/dataset/159/magic+gamma+telescope
+- Online **Shoppers** Purchasing Intention: https://archive.ics.uci.edu/dataset/468/online+shoppers+purchasing+intention+dataset
+- Online **News** Popularity: https://archive.ics.uci.edu/dataset/332/online+news+popularity
+
+We provide three additional baseline datasets from Kaggle:
+- **Bank**ing - Marketing Targets: https://www.kaggle.com/datasets/prakharrathi25/banking-dataset-marketing-targets
+- **Cardio**vascular Disease: https://www.kaggle.com/datasets/sulianova/cardiovascular-disease-dataset
+- **Stroke** Prediction: https://www.kaggle.com/datasets/fedesoriano/stroke-prediction-dataset
+
+As Kaggle requires user log-on, these three datasets should be downloaded manually. \
+To process each dataset:
+```
+cd data
+mkdir [dataname]
+# Move the downloaded Kaggle dataset .csv file into the newly-created folder
+cd ..
+python process_dataset.py [dataname]
+```
+
 
 For the "Census Synthetic" dataset, download the census.csv dataset from the [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/116/us+census+data+1990) where you change the .data file to .csv instead. Save it within the repository then replace the path within tabunite_census-synthetic/dataset.py. The dataname for this dataset is denoted as: syn1.
 
