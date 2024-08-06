@@ -5,8 +5,8 @@ from tqdm import tqdm
 import torch.nn.functional as F
 from torch.distributions.categorical import Categorical
 
-from methods.tabflow.models.discrete_flow import DiscreteFlowMatcher
-from methods.tabflow.models.continuous_flow import ContinuouslFlowMatcher
+from tabflow.models.discrete_flow import DiscreteFlowMatcher
+from tabflow.models.continuous_flow import ContinuouslFlowMatcher
 
 def index_to_log_onehot(x, num_classes):
     onehots = []

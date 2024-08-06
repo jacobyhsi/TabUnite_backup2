@@ -1,7 +1,7 @@
 import os
 
 import src
-from methods.tabflow.sample import sample
+from tabflow.sample import sample
 
 def main(args):
     dataname = args.dataname

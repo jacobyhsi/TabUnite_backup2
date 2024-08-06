@@ -1,7 +1,7 @@
 import os
 
 import src
-from methods.tabflow.train import train
+from tabflow.train import train
 
 def main(args):
     curr_dir = os.path.dirname(os.path.abspath(__file__))

@@ -25,16 +25,21 @@ def main(args):
     print('START SAMPLING: TABDDPM I2B')
     
     sample(
+        num_samples=raw_config['sample']['num_samples'],
+        batch_size=raw_config['sample']['batch_size'],
+        disbalance=raw_config['sample'].get('disbalance', None),
         **raw_config['diffusion_params'],
         model_save_path=model_save_path,
         sample_save_path=sample_save_path,
-        dataname=dataname,
+        real_data_path=real_data_path,
+        task_type=raw_config['task_type'],
         model_type=raw_config['model_type'],
         model_params=raw_config['model_params'],
+        T_dict=raw_config['train']['T'],
+        num_numerical_features=raw_config['num_numerical_features'],
         device=device,
-        num_samples=raw_config['sample']['num_samples'],
-        batch_size=raw_config['sample']['batch_size'],
-        num_numerical_features=raw_config['num_numerical_features']
+        ddim=args.ddim,
+        steps=args.steps
     )
 
 if __name__ == '__main__':

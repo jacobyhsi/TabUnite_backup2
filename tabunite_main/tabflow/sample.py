@@ -6,8 +6,8 @@ import pandas as pd
 
 import src
 from utils_train import make_dataset
-from methods.tabflow.models.modules import MLPDiffusion
-from methods.tabflow.models.mixed_flow import ContinuousDiscreteFlow
+from tabflow.models.modules import MLPDiffusion
+from tabflow.models.mixed_flow import ContinuousDiscreteFlow
 
 def bits_needed(categories):
     return np.ceil(np.log2(categories)).astype(int)

@@ -1,7 +1,7 @@
 from baselines.ctgan.main_tvae import main as train_tvae
 from baselines.ctgan.main_ctgan import main as train_ctgan
 from baselines.great.main import main as train_great
-from baselines.goggle.main import main as train_goggle
+# from baselines.goggle.main import main as train_goggle
 from baselines.codi.main import main as train_codi
 from baselines.stasy.main import main as train_stasy
 from baselines.tabddpm.main_train import main as train_tabddpm
@@ -10,7 +10,7 @@ from baselines.smote.main import main as train_smote
 from baselines.ctgan.sample_tvae import main as sample_tvae
 from baselines.ctgan.sample_ctgan import main as sample_ctgan
 from baselines.great.sample import main as sample_great
-from baselines.goggle.sample import main as sample_goggle
+# from baselines.goggle.sample import main as sample_goggle
 from baselines.codi.sample import main as sample_codi
 from baselines.stasy.sample import main as sample_stasy
 from baselines.tabddpm.main_sample import main as sample_tabddpm
@@ -27,6 +27,8 @@ from oheflow.main_train import main as train_oheflow
 from oheflow.main_sample import main as sample_oheflow
 from pskflow.main_train import main as train_pskflow
 from pskflow.main_sample import main as sample_pskflow
+from tabflow.main_train import main as train_tabflow
+from tabflow.main_sample import main as sample_tabflow
 
 from i2bddpm.main_train import main as train_i2bddpm
 from i2bddpm.main_sample import main as sample_i2bddpm

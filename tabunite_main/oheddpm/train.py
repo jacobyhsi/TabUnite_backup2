@@ -26,14 +26,13 @@ def get_model(
     return model
 
 class Trainer:
-    def __init__(self, diffusion, dataset, batch_size, lr, weight_decay, steps, model_save_path, device=torch.device('cuda:1')):
+    def __init__(self, diffusion, train_iter, lr, weight_decay, steps, model_save_path, device=torch.device('cuda:1')):
         self.diffusion = diffusion
         self.ema_model = deepcopy(self.diffusion._denoise_fn)
         for param in self.ema_model.parameters():
             param.detach_()
 
-        self.dataset = dataset
-        self.batch_size = batch_size
+        self.train_iter = train_iter
         self.steps = steps
         self.init_lr = lr
         self.optimizer = torch.optim.AdamW(self.diffusion.parameters(), lr=lr, weight_decay=weight_decay)
@@ -82,8 +81,7 @@ class Trainer:
         print('Steps: ', self.steps)
         while step < self.steps:
             start_time = time.time()
-            x = self.dataset.gen_batch(self.batch_size)
-            x = torch.tensor(x, dtype=torch.float32)
+            x = next(self.train_iter)[0]
             
             batch_loss_multi, batch_loss_gauss = self._run_step(x)
 
@@ -126,23 +124,39 @@ class Trainer:
 
 def train(
     model_save_path,
-    dataname,
+    real_data_path,
     steps = 1000,
     lr = 0.002,
     weight_decay = 1e-4,
     batch_size = 1024,
-    model_type='mlp',
+    task_type = 'binclass',
+    model_type = 'mlp',
     model_params = None,
     num_timesteps = 1000,
     gaussian_loss_type = 'mse',
     scheduler = 'cosine',
-    device=torch.device('cuda:0'),
+    T_dict = None,
+    num_numerical_features = 0,
+    device = torch.device('cuda:0'),
+    seed = 0,
+    change_val = False
 ):
-    
-    dataset = SynthDataset(dataname)
+    real_data_path = os.path.normpath(real_data_path)
 
-    K = dataset.get_category_sizes()
-    num_numerical_features = dataset.get_numerical_sizes()
+    # zero.improve_reproducibility(seed)
+
+    T = src.Transformations(**T_dict)
+
+
+    dataset = make_dataset(
+        real_data_path,
+        T,
+        task_type = task_type,
+        change_val = False,
+    )
+
+    K = np.array(dataset.get_category_sizes('train'))
+    num_numerical_features = dataset.X_num['train'].shape[1] if dataset.X_num is not None else 0
     d_in = np.sum(K) + num_numerical_features
     model_params['d_in'] = d_in
 
@@ -153,6 +167,8 @@ def train(
         category_sizes=K
     )
     model.to(device)
+
+    train_loader = src.prepare_fast_dataloader(dataset, split='train', batch_size=batch_size)
 
     diffusion = GaussianMultinomialDiffusion(
         num_classes=np.array(K),
@@ -174,8 +190,7 @@ def train(
 
     trainer = Trainer(
         diffusion,
-        dataset,
-        batch_size=batch_size,
+        train_loader,
         lr=lr,
         weight_decay=weight_decay,
         steps=steps,
