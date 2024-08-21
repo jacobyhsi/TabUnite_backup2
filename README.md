@@ -15,7 +15,7 @@ tabunite_syn_quant: quantitative synthetic dataset
 
 Clone this repository and navigate to it in your terminal.
 
-Create environment. This environment can be used for everything apart from eval_quality:
+Create environment. This environment can be used for everything apart from ```eval_quality```:
 
 ```
 conda create -n tabunite python=3.10
@@ -33,14 +33,13 @@ and other dependencies:
 pip install -r requirements.txt
 
 pip install  dgl -f https://data.dgl.ai/wheels/cu117/repo.html
-
 pip install torch_geometric
 pip install pyg_lib torch_scatter torch_sparse torch_cluster torch_spline_conv -f https://data.pyg.org/whl/torch-2.0.1+cu117.html
 ```
 
 Any other missing dependencies can be installed using pip. Once all the dependencies are installed, the scripts should run accordingly.
 
-For eval_quality, create the following environment:
+For ```eval_quality```, create the following environment:
 ```
 conda create -n tabunite_quality python=3.10
 conda activate tabunite_quality
