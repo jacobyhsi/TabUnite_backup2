@@ -30,6 +30,7 @@ conda install pytorch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 pytorch-cuda=
 
 and other dependencies:
 ```
+cd tabunite_main
 pip install -r requirements.txt
 
 pip install  dgl -f https://data.dgl.ai/wheels/cu117/repo.html
