@@ -59,7 +59,7 @@ pip install scipy==1.12.0
 
 ## Datasets
 
-Baseline datasets can be downloaded within the tabunite_main directory as follows:
+Baseline datasets can be downloaded within the ```tabunite_main``` directory as follows:
 ```
 python download_dataset.py
 python process_dataset.py
