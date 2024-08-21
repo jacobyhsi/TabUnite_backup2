@@ -19,3 +19,4 @@ rdt
 openpyxl
 xgboost
 pydantic
+einops
