@@ -3,9 +3,9 @@ import torch
 import numpy as np
 
 from dataset import OnlineToyDataset
-from methods.dilflow.models.modules import MLPDiffusion, Model
-from methods.dilflow.models.flow_matching import ConditionalFlowMatcher
-from methods.dilflow.models.flow_matching import sample as cfm_sampler
+from methods.dicflow.models.modules import MLPDiffusion, Model
+from methods.dicflow.models.flow_matching import ConditionalFlowMatcher
+from methods.dicflow.models.flow_matching import sample as cfm_sampler
 from dataset import plot_rings_example, plot_25_gaussian_example, plot_25_circles_example, plot_olympic_example
 
 def get_model(

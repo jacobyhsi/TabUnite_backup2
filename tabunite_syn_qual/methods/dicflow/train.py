@@ -6,8 +6,8 @@ import pandas as pd
 from copy import deepcopy
 
 from dataset import OnlineToyDataset
-from methods.dilflow.models.modules import MLPDiffusion, Model
-from methods.dilflow.models.flow_matching import ConditionalFlowMatcher
+from methods.dicflow.models.modules import MLPDiffusion, Model
+from methods.dicflow.models.flow_matching import ConditionalFlowMatcher
 
 def get_model(
     model_name,

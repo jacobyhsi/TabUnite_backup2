@@ -1,7 +1,7 @@
 import os
 
 import src
-from methods.dilflow.sample import sample
+from methods.dicflow.sample import sample
 
 def main(args):
     dataname = args.dataname

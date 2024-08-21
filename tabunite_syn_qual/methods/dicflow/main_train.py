@@ -1,7 +1,7 @@
 import os
 
 import src
-from methods.dilflow.train import train
+from methods.dicflow.train import train
 
 def main(args):
     curr_dir = os.path.dirname(os.path.abspath(__file__))
