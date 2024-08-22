@@ -15,6 +15,9 @@ from methods.tabflow.main_sample import main as sample_tabflow
 from methods.tabddpm.main_train import main as train_tabddpm
 from methods.tabddpm.main_sample import main as sample_tabddpm
 
+from methods.tabddim.main_train import main as train_tabddim
+from methods.tabddim.main_sample import main as sample_tabddim
+
 # from methods.tabsyn.vae.main import main as train_tabsyn_vae
 # from methods.tabsyn.main import main as train_tabsyn
 # from methods.tabsyn.sample import main as sample_tabsyn
