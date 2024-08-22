@@ -12,6 +12,9 @@ from methods.pskflow.main_sample import main as sample_pskflow
 from methods.tabddpm.main_train import main as train_tabddpm
 from methods.tabddpm.main_sample import main as sample_tabddpm
 
+from methods.tabddim.main_train import main as train_tabddim
+from methods.tabddim.main_sample import main as sample_tabddim
+
 def execute_function(method, mode):
     if method == 'vae':
         mode = 'train'
