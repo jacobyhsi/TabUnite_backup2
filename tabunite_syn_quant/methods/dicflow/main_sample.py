@@ -1,22 +1,27 @@
 import os
 
 import src
-from methods.dilflow.train import train
+from methods.dicflow.sample import sample
 
 def main(args):
-    curr_dir = os.path.dirname(os.path.abspath(__file__))
     dataname = args.dataname
     device = f'cuda:{args.gpu}'
 
+    curr_dir = os.path.dirname(os.path.abspath(__file__))
     config_path = f'{curr_dir}/configs/{dataname}.toml'
-    model_save_path = f'{curr_dir}/ckpt/{dataname}/model_{args.model_id}'
+    model_save_path = f'{curr_dir}/ckpt/{dataname}'
+    sample_save_path = args.save_path
 
-    if not os.path.exists(model_save_path):
-        os.makedirs(model_save_path)
+    args.train = True
 
     raw_config = src.load_config(config_path)
 
-    train(
+    ''' 
+    Modification of configs
+    '''
+    print('START SAMPLING')
+
+    sample(
         **raw_config['train']['main'],
         model_save_path=model_save_path,
         dataname=dataname,

@@ -2,13 +2,12 @@ import torch
 import numpy as np
 
 from dataset import OnlineToyDataset
-from methods.pskflow.models.modules import MLPDiffusion, Model
-from methods.pskflow.models.flow_matching import ConditionalFlowMatcher
-from methods.pskflow.models.flow_matching import sample as cfm_sampler
-from dataset import plot_rings_example, plot_25_gaussian_example, plot_olympic_example
+from methods.dicflow.models.modules import MLPDiffusion, Model
+from methods.dicflow.models.flow_matching import ConditionalFlowMatcher
+from methods.dicflow.models.flow_matching import sample as cfm_sampler
 
 def bits_needed(categories):
-    return 2 * np.ones_like(categories)
+    return np.ceil(np.log2(categories)).astype(int)
 
 def get_model(
     model_name,
@@ -38,8 +37,8 @@ def sample(
 
     K = np.array(dataset.get_category_sizes())
     num_numerical_features = dataset.get_numerical_sizes()
-    num_bits_per_cat_feature = bits_needed(K) if len(K) > 0 else np.array([0])
-    d_in = np.sum(num_bits_per_cat_feature) + num_numerical_features
+    
+    d_in = num_numerical_features + len(K)
     model_params['d_in'] = d_in
 
     flow_net = get_model(
@@ -60,21 +59,14 @@ def sample(
         cfm,
         num_numerical_features,
         K,
-        num_bits_per_cat_feature,
     )
     model.to(device)
     model.eval()
 
     num_samples = 20000
 
-    for step in [2, 10, 100, 500]:
-        x_gen = cfm_sampler(model, num_samples, d_in, N=step, device=device, use_tqdm=True)
+    step = 1000
+    x_gen = cfm_sampler(model, num_samples, d_in, N=step, device=device, use_tqdm=True)
+    acc = dataset.evaluate(x_gen)
+    print(f'Accuracy: {acc}')
 
-        if dataname == 'rings':
-            plot_rings_example(x_gen, f'{model_save_path}/rings_pskflow_steps={step}.png')
-        elif dataname == 'olympic':
-            plot_olympic_example(x_gen, f'{model_save_path}/olympic_pskflow_steps={step}.png')
-        elif dataname == '25gaussians':
-            plot_25_gaussian_example(x_gen, f'{model_save_path}/25gaussians_pskflow_steps={step}.png')
-        else:
-            raise "Unknown dataset!"

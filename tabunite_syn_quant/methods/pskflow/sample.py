@@ -2,9 +2,9 @@ import torch
 import numpy as np
 
 from dataset import OnlineToyDataset
-from methods.dilflow.models.modules import MLPDiffusion, Model
-from methods.dilflow.models.flow_matching import ConditionalFlowMatcher
-from methods.dilflow.models.flow_matching import sample as cfm_sampler
+from methods.pskflow.models.modules import MLPDiffusion, Model
+from methods.pskflow.models.flow_matching import ConditionalFlowMatcher
+from methods.pskflow.models.flow_matching import sample as cfm_sampler
 
 def bits_needed(categories):
     return np.ceil(np.log2(categories)).astype(int)
@@ -37,8 +37,8 @@ def sample(
 
     K = np.array(dataset.get_category_sizes())
     num_numerical_features = dataset.get_numerical_sizes()
-    
-    d_in = num_numerical_features + len(K)
+    num_bits_per_cat_feature = bits_needed(K) if len(K) > 0 else np.array([0])
+    d_in = np.sum(num_bits_per_cat_feature) + num_numerical_features
     model_params['d_in'] = d_in
 
     flow_net = get_model(
@@ -59,6 +59,7 @@ def sample(
         cfm,
         num_numerical_features,
         K,
+        num_bits_per_cat_feature,
     )
     model.to(device)
     model.eval()

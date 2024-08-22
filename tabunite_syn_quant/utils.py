@@ -1,10 +1,13 @@
 import argparse
 
-from methods.dilflow.main_train import main as train_dilflow
-from methods.dilflow.main_sample import main as sample_dilflow
+from methods.dicflow.main_train import main as train_dicflow
+from methods.dicflow.main_sample import main as sample_dicflow
 
 from methods.i2bflow.main_train import main as train_i2bflow
 from methods.i2bflow.main_sample import main as sample_i2bflow
+
+from methods.pskflow.main_train import main as train_pskflow
+from methods.pskflow.main_sample import main as sample_pskflow
 
 from methods.tabflow.main_train import main as train_tabflow
 from methods.tabflow.main_sample import main as sample_tabflow
