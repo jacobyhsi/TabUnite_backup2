@@ -86,7 +86,7 @@ cd ..
 python process_dataset.py [dataname]
 ```
 
-For the ```Census Synthetic``` dataset, download the ```census.csv``` dataset from the [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/116/us+census+data+1990) where you modify the .data file to .csv instead. Save it as ```census.csv``` in ```tabunite_census-synthetic/data``` (```tabunite_census-synthetic/data/census.csv```) then replace the path within ```tabunite_census-synthetic/dataset.py```. The dataname for this dataset is denoted as: ```syn1```.
+For the ```Census Synthetic``` dataset, download the ```census.csv``` dataset from the [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/116/us+census+data+1990) where you modify the .data file to .csv instead. Save it as ```census.csv``` in ```tabunite_census-synthetic/data``` (```tabunite_census-synthetic/data/census.csv```) then replace the path within ```tabunite_census-synthetic/dataset.py```. The dataname for this dataset to ```train```, ```sample```, and ```eval``` is denoted as: ```syn1```.
 
 ## Training, Sampling and Evaluation
 
