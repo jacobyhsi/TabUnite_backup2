@@ -263,9 +263,8 @@ class SynthDataset():
         
         # Directory setup for saving CSV files
         save_path = f"synthetic/{self.dataname}"
-        directory = os.path.dirname(save_path)
-        if not os.path.exists(directory):
-            os.makedirs(directory)
+        if not os.path.exists(save_path):
+            os.makedirs(save_path)
         
         # Save training data
         print("Generating real.csv")
