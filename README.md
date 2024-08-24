@@ -58,7 +58,7 @@ pip install scipy==1.12.0
 
 ## Datasets
 
-Baseline datasets can be downloaded within the ```tabunite_main``` directory as follows:
+Download baseline datasets and run them within the ```tabunite_main``` directory as follows:
 ```
 python download_dataset.py
 python process_dataset.py
@@ -86,8 +86,7 @@ cd ..
 python process_dataset.py [dataname]
 ```
 
-
-For the "Census Synthetic" dataset, download the census.csv dataset from the [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/116/us+census+data+1990) where you change the .data file to .csv instead. Save it within the repository then replace the path within tabunite_census-synthetic/dataset.py. The dataname for this dataset is denoted as: syn1.
+For the ```Census Synthetic``` dataset, download the census.csv dataset from the [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/116/us+census+data+1990) where you change the .data file to .csv instead. Save it within the repository then replace the path within tabunite_census-synthetic/dataset.py. The dataname for this dataset is denoted as: syn1.
 
 ## Training, Sampling and Evaluation
 
