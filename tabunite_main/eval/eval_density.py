@@ -92,16 +92,19 @@ if __name__ == '__main__':
 
     new_real_data, new_syn_data, metadata = reorder(real_data, syn_data, info)
 
-    qual_report = QualityReport('CDE')
+    qual_report = QualityReport()
     qual_report.generate(new_real_data, new_syn_data, metadata)
 
     quality =  qual_report.get_properties()
 
     Shape = quality['Score'][0]
-    # Trend = quality['Score'][1]
+    Trend = quality['Score'][1]
     
     csv_path = os.path.split(syn_path)[1]
     csv_name = csv_path.split('.')[0]
 
     with open(f'{save_dir}/quality_cde_' + csv_name + '.txt', 'w') as f:
         f.write(f'CDE: {Shape}\n')
+
+    with open(f'{save_dir}/quality_pwc_' + csv_name + '.txt', 'w') as f:
+        f.write(f'PWC: {Shape}\n')
