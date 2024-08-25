@@ -5,7 +5,7 @@ import os
 import json
 
 # Metrics
-from sdmetrics.reports.single_table import quality_report
+from sdmetrics.reports.single_table import QualityReport
 
 
 import argparse
@@ -77,8 +77,8 @@ if __name__ == '__main__':
     with open(f'{data_dir}/info.json', 'r') as f:
         info = json.load(f)
 
-    syn_data = pd.read_csv(syn_path).sample(n=250000, random_state=42)
-    real_data = pd.read_csv(real_path).sample(n=250000, random_state=42)
+    syn_data = pd.read_csv(syn_path)
+    real_data = pd.read_csv(real_path)
     
     save_dir = f'eval/density/{dataname}/{model}'
     if not os.path.exists(save_dir):
@@ -103,8 +103,6 @@ if __name__ == '__main__':
     csv_path = os.path.split(syn_path)[1]
     csv_name = csv_path.split('.')[0]
 
-    with open(f'{save_dir}/quality_cde_' + csv_name + '.txt', 'w') as f:
+    with open(f'{save_dir}/quality' + csv_name + '.txt', 'w') as f:
         f.write(f'CDE: {Shape}\n')
-
-    with open(f'{save_dir}/quality_pwc_' + csv_name + '.txt', 'w') as f:
-        f.write(f'PWC: {Shape}\n')
+        f.write(f'PWC: {Trend}\n')
