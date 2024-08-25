@@ -1,2 +1,0 @@
-Alpha_Precision_all: 0.8210530666666667
-Beta_Recall_all: 0.34560346666666675
