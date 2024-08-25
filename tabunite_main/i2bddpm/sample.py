@@ -137,8 +137,6 @@ def sample(
         change_val = False,
     )
 
-    print("D:" + str(D.X_cat['train'][0:10]))
-
     K = np.array(D.get_category_sizes('train'))
     num_numerical_features = D.X_num['train'].shape[1] if D.X_num is not None else 0
     num_bits_per_cat_feature = bits_needed(K) if len(K) > 0 else np.array([0])
