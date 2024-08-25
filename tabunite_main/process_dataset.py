@@ -34,6 +34,18 @@ def preprocess_beijing():
     df_cleaned = data_df.dropna()
     df_cleaned.to_csv(info['data_path'], index = False)
 
+def preprocess_stroke():
+    with open(f'{INFO_PATH}/stroke.json', 'r') as f:
+        info = json.load(f)
+    
+    data_path = info['data_path']
+
+    data_df = pd.read_csv(data_path)
+    columns = data_df.columns
+
+    df_cleaned = data_df.dropna()
+    df_cleaned.to_csv(info['data_path'], index = False)
+
 def preprocess_news():
     with open(f'{INFO_PATH}/news.json', 'r') as f:
         info = json.load(f)
