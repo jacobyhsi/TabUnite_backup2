@@ -103,6 +103,6 @@ if __name__ == '__main__':
     csv_path = os.path.split(syn_path)[1]
     csv_name = csv_path.split('.')[0]
 
-    with open(f'{save_dir}/quality' + csv_name + '.txt', 'w') as f:
+    with open(f'{save_dir}/quality' + '.txt', 'w') as f:
         f.write(f'CDE: {Shape}\n')
         f.write(f'PWC: {Trend}\n')
