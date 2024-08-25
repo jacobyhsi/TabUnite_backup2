@@ -1,14 +1,14 @@
-parent_dir = "configs/census_mixed"
-model_save_path = "ckpt/census_mixed"
-sample_save_path = "sampled/census_mixed"
-real_data_path = "Data/census_mixed"
+parent_dir = "configs/cardio"
+model_save_path = "ckpt/cardio"
+sample_save_path = "sampled/cardio"
+real_data_path = "Data/cardio"
 
-num_numerical_features = 15
+num_numerical_features = 5
 model_type = "mlp"
-task_type = "multiclass"
+task_type = "binclass"
 
 [model_params]
-num_classes = 10
+num_classes = 2
 is_y_cond = false
 
 [model_params.rtdl_params]
@@ -40,7 +40,7 @@ cat_encoding = "__none__"
 y_policy = "default"
 
 [sample]
-num_samples = 2458285
+num_samples = 63000
 batch_size = 10000
 seed = 0
 

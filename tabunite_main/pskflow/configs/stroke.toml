@@ -1,9 +1,9 @@
-parent_dir = "configs/churn_modelling"
-model_save_path = "ckpt/churn_modelling"
-sample_save_path = "sampled/churn_modelling"
-real_data_path = "Data/churn_modelling"
+parent_dir = "configs/stroke"
+model_save_path = "ckpt/stroke"
+sample_save_path = "sampled/stroke"
+real_data_path = "Data/stroke"
 
-num_numerical_features = 7
+num_numerical_features = 3
 model_type = "mlp"
 task_type = "binclass"
 
@@ -40,8 +40,8 @@ cat_encoding = "__none__"
 y_policy = "default"
 
 [sample]
-num_samples = 9000
-batch_size = 3000
+num_samples = 4418
+batch_size = 1000
 seed = 0
 
 [eval.type]

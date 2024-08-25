@@ -30,7 +30,6 @@ def preprocess_beijing():
 
     data_df = data_df[columns[1:]]
 
-
     df_cleaned = data_df.dropna()
     df_cleaned.to_csv(info['data_path'], index = False)
 
