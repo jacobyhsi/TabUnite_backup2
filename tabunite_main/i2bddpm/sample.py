@@ -174,17 +174,12 @@ def sample(
     else:
         x_gen = diffusion.sample_all(num_samples, batch_size, ddim=True, steps = steps)
     
-
-    print('Shape', x_gen.shape)
-
     syn_data = x_gen
     num_inverse = D.num_transform.inverse_transform
     cat_inverse = D.cat_transform.inverse_transform
     
     info_path = f'{real_data_path}/info.json'
 
-    print(D.cat_transform.inverse_transform)
-    
     with open(info_path, 'r') as f:
         info = json.load(f)
 
