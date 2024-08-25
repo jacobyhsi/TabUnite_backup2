@@ -41,7 +41,8 @@ def preprocess_stroke():
     data_path = info['data_path']
 
     data_df = pd.read_csv(data_path)
-    columns = data_df.columns
+    if 'id' in data_df.columns:
+        data_df = data_df.drop('id', axis=1)
 
     df_cleaned = data_df.dropna()
     df_cleaned.to_csv(info['data_path'], index = False)
@@ -159,6 +160,8 @@ def process_data(name):
         preprocess_news()
     elif name == 'beijing':
         preprocess_beijing()
+    elif name == 'stroke':
+        preprocess_stroke()
 
     with open(f'{INFO_PATH}/{name}.json', 'r') as f:
         info = json.load(f)
