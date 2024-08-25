@@ -106,18 +106,12 @@ def bits_to_categorical(bits_tensor, num_bits_per_feature, num_classes):
         
         # Convert bits to decimal
         mask = 2 ** torch.arange(num_bits - 1, -1, -1, device=device, dtype=torch.long)
-        categorical_feature = torch.sum(feature_bits * mask, dim=1)
-        categorical_feature = categorical_feature.unsqueeze(-1)
-        # print(categorical_feature)
-        for j in range(categorical_feature.shape[0]):
-            if (categorical_feature[j][0] < 0):
-                categorical_feature[j][0] = 0
-            elif (categorical_feature[j][0] >= num_classes[i]):
-                categorical_feature[j][0] = num_classes[i]-1
-        
-        categorical_features.append(categorical_feature)
+        categorical_feature = torch.sum(feature_bits * mask, dim=1, keepdim=True)  # keepdim for later concatenation
 
-    
+        # Clamp values using vectorized operations
+        categorical_feature = torch.clamp(categorical_feature, min=0, max=num_classes[i] - 1)
+
+        categorical_features.append(categorical_feature)
         start_index = end_index
         i = i+1
     
