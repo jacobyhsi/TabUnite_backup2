@@ -41,7 +41,6 @@ def preprocess_stroke():
     data_path = info['data_path']
 
     data_df = pd.read_csv(data_path)
-    columns = data_df.columns
 
     df_cleaned = data_df.dropna()
     df_cleaned.to_csv(info['data_path'], index = False)
