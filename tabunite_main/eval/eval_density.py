@@ -105,4 +105,4 @@ if __name__ == '__main__':
 
     with open(f'{save_dir}/quality' + '.txt', 'w') as f:
         f.write(f'CDE: {Shape}\n')
-        f.write(f'PWC: {Trend}\n')
+        f.write(f'PCC: {Trend}\n')

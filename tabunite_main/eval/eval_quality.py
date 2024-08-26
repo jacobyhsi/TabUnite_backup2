@@ -153,5 +153,5 @@ if __name__ == '__main__':
         os.makedirs(save_dir)
 
     with open(f'{save_dir}/{model}.txt', 'w') as f:
-        f.write(f'{Alpha_Precision_all}\n')
-        f.write(f'{Beta_Recall_all}\n')
+        f.write(f'Alpha: {Alpha_Precision_all}\n')
+        f.write(f'Beta: {Beta_Recall_all}\n')
