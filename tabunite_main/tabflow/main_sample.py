@@ -9,7 +9,7 @@ def main(args):
 
     curr_dir = os.path.dirname(os.path.abspath(__file__))
     config_path = f'{curr_dir}/configs/{dataname}.toml'
-    model_save_path = f'{curr_dir}/ckpt/{dataname}/model_{args.model_id}'
+    model_save_path = f'{curr_dir}/ckpt/{dataname}'
     real_data_path = f'data/{dataname}'
     sample_save_path = args.save_path
 

@@ -9,12 +9,8 @@ def main(args):
     device = f'cuda:{args.gpu}'
 
     config_path = f'{curr_dir}/configs/{dataname}.toml'
-    real_data_path = f'data/{dataname}'
-
     model_save_path = f'{curr_dir}/ckpt/{dataname}'
-    os.makedirs(model_save_path, exist_ok=True)
-    fold_num = sum([os.path.isdir(f'{model_save_path}/{listx}') for listx in os.listdir(model_save_path)])
-    model_save_path = f'{model_save_path}/model_{fold_num}'
+    real_data_path = f'data/{dataname}'
 
     if not os.path.exists(model_save_path):
         os.makedirs(model_save_path)
