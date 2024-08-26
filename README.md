@@ -44,6 +44,8 @@ For ```eval_quality```, create the following environment:
 conda create -n tabunite_quality python=3.10
 conda activate tabunite_quality
 
+python -m pip install "pip<24.1"
+
 pip install synthcity
 pip install category_encoders
 pip install tomli
