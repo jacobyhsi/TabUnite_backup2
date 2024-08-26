@@ -47,6 +47,7 @@ conda activate tabunite_quality
 python -m pip install "pip<24.1"
 
 pip install synthcity
+pip install icecream
 pip install category_encoders
 pip install tomli
 pip install tomli_w
