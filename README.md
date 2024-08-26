@@ -55,6 +55,8 @@ pip install zero
 pip install scipy
 pip install click==8.1.7
 pip install scipy==1.12.0
+
+pip install --upgrade pip
 ```
 
 
