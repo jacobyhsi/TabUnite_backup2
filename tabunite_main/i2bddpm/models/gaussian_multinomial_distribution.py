@@ -81,7 +81,45 @@ def convert_categorical_to_bits(tensor, num_bits_per_feature):
     final_bit_tensor = torch.cat(bit_tensors, dim=-1)
     return final_bit_tensor
 
-def bits_to_categorical(bits_tensor, num_bits_per_feature, num_classes):
+# def bits_to_categorical(bits_tensor, num_bits_per_feature, num_classes):
+#     """Converts a tensor of bit representations back to categorical features.
+    
+#     Args:
+#         bits_tensor: A tensor containing bit representations.
+#         num_bits_per_feature: A list indicating the number of bits for each feature.
+    
+#     Returns:
+#         A tensor of categorical features.
+#     """
+#     device = bits_tensor.device
+#     start_index = 0
+#     categorical_features = []
+    
+#     # Convert bits from -1 to 1 range back to 0 and 1
+#     bits_tensor = ((bits_tensor + 1) / 2).int()
+    
+#     i = 0
+#     for num_bits in num_bits_per_feature:
+#         # Extract bits for the current feature
+#         end_index = start_index + num_bits
+#         feature_bits = bits_tensor[:, start_index:end_index]
+        
+#         # Convert bits to decimal
+#         mask = 2 ** torch.arange(num_bits - 1, -1, -1, device=device, dtype=torch.long)
+#         categorical_feature = torch.sum(feature_bits * mask, dim=1, keepdim=True)  # keepdim for later concatenation
+
+#         # Clamp values using vectorized operations
+#         categorical_feature = torch.clamp(categorical_feature, min=0, max=num_classes[i] - 1)
+
+#         categorical_features.append(categorical_feature)
+#         start_index = end_index
+#         i = i+1
+    
+#     # Concatenate all categorical features along the last dimension
+#     final_categorical_tensor = torch.cat(categorical_features, dim=-1)
+#     return final_categorical_tensor
+
+def bits_to_categorical(bits_tensor, num_bits_per_feature):
     """Converts a tensor of bit representations back to categorical features.
     
     Args:
@@ -98,7 +136,6 @@ def bits_to_categorical(bits_tensor, num_bits_per_feature, num_classes):
     # Convert bits from -1 to 1 range back to 0 and 1
     bits_tensor = ((bits_tensor + 1) / 2).int()
     
-    i = 0
     for num_bits in num_bits_per_feature:
         # Extract bits for the current feature
         end_index = start_index + num_bits
@@ -106,14 +143,10 @@ def bits_to_categorical(bits_tensor, num_bits_per_feature, num_classes):
         
         # Convert bits to decimal
         mask = 2 ** torch.arange(num_bits - 1, -1, -1, device=device, dtype=torch.long)
-        categorical_feature = torch.sum(feature_bits * mask, dim=1, keepdim=True)  # keepdim for later concatenation
-
-        # Clamp values using vectorized operations
-        categorical_feature = torch.clamp(categorical_feature, min=0, max=num_classes[i] - 1)
-
-        categorical_features.append(categorical_feature)
+        categorical_feature = torch.sum(feature_bits * mask, dim=1)
+        
+        categorical_features.append(categorical_feature.unsqueeze(-1))
         start_index = end_index
-        i = i+1
     
     # Concatenate all categorical features along the last dimension
     final_categorical_tensor = torch.cat(categorical_features, dim=-1)
@@ -1103,16 +1136,31 @@ class GaussianMultinomialDiffusion(torch.nn.Module):
 
         z_num = z_norm[:, :self.num_numerical_features]
         z_cat_transformed = z_norm[:, self.num_numerical_features:]
-        z_cat = bits_to_categorical(z_cat_transformed, self.num_bits_per_cat_feature, self.num_classes)
+        z_cat = bits_to_categorical((z_cat_transformed > 0).int(), self.num_bits_per_cat_feature)
+        syn_num = z_num.cpu().numpy()
+        syn_cat = z_cat.cpu().numpy()
+
+        # cast the output to the maximum if it is out of bound
+        categories = np.array(self.num_classes).reshape(1, -1)
+        categories = np.repeat(categories, syn_cat.shape[0], axis = 0) - 1
+
+        print(f'casting rate: {(syn_cat > categories).sum()} / {syn_cat.shape[0] * syn_cat.shape[1]} = {(syn_cat > categories).mean()}')
+        syn_cat[syn_cat > categories] = categories[syn_cat > categories]
+        
+        x_gen = np.concatenate([syn_num, syn_cat], axis=1)
+        x_gen = torch.from_numpy(x_gen)
+        return x_gen
+        
+        # z_cat = bits_to_categorical(z_cat_transformed, self.num_bits_per_cat_feature, self.num_classes)
 
         # print(self.num_classes)
         # z_ohe = torch.exp(log_z).round()
         # z_cat = log_z
         # if has_cat:
             # z_cat = ohe_to_categories(z_ohe, self.num_classes)
-        sample = torch.cat([z_num, z_cat], dim=1).cpu()
+        # sample = torch.cat([z_num, z_cat], dim=1).cpu()
         # print(z_cat)
-        return sample
+        # return sample
     
     def sample_all(self, num_samples, batch_size, ddim=False, steps = 1000):
         if ddim:

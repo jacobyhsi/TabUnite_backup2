@@ -147,7 +147,7 @@ def sample(
         model_type,
         model_params,
         num_numerical_features,
-        category_sizes=K
+        category_sizes=D.get_category_sizes('train')
     )
    
     model_path =f'{model_save_path}/model.pt'
@@ -158,7 +158,7 @@ def sample(
 
 
     diffusion = GaussianMultinomialDiffusion(
-        np.array(K),
+        K,
         num_numerical_features=num_numerical_features,
         denoise_fn=model, num_timesteps=num_timesteps, 
         gaussian_loss_type=gaussian_loss_type, scheduler=scheduler, device=device,

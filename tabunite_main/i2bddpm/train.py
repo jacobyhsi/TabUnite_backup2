@@ -145,7 +145,7 @@ def train(
     change_val = False
 ):
     real_data_path = os.path.normpath(real_data_path)
-
+    
     # zero.improve_reproducibility(seed)
 
     T = src.Transformations(**T_dict)
@@ -166,20 +166,21 @@ def train(
     print(d_in)
     
     print(model_params)
+    
     model = get_model(
         model_type,
         model_params,
         num_numerical_features,
-        category_sizes=K
+        category_sizes=dataset.get_category_sizes('train')
     )
     model.to(device)
-
+    
     print(model)
 
     train_loader = src.prepare_fast_dataloader(dataset, split='train', batch_size=batch_size)
 
     diffusion = GaussianMultinomialDiffusion(
-        num_classes=np.array(K),
+        num_classes=K,
         num_numerical_features=num_numerical_features,
         denoise_fn=model,
         gaussian_loss_type=gaussian_loss_type,
