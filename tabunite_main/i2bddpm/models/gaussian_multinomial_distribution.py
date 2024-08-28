@@ -1150,17 +1150,7 @@ class GaussianMultinomialDiffusion(torch.nn.Module):
         x_gen = np.concatenate([syn_num, syn_cat], axis=1)
         x_gen = torch.from_numpy(x_gen)
         return x_gen
-        
-        # z_cat = bits_to_categorical(z_cat_transformed, self.num_bits_per_cat_feature, self.num_classes)
 
-        # print(self.num_classes)
-        # z_ohe = torch.exp(log_z).round()
-        # z_cat = log_z
-        # if has_cat:
-            # z_cat = ohe_to_categories(z_ohe, self.num_classes)
-        # sample = torch.cat([z_num, z_cat], dim=1).cpu()
-        # print(z_cat)
-        # return sample
     
     def sample_all(self, num_samples, batch_size, ddim=False, steps = 1000):
         if ddim:
